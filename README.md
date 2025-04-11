@@ -1,5 +1,4 @@
 ---
-
 # GitHub Comparator
 
 > A slick tool to compare GitHub profiles with a dev-inspired twist. Highlight your main coder with a glowing username, glitchy binary vibes, and neon accents—straight outta the terminal.
