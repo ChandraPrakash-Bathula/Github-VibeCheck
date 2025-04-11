@@ -44,7 +44,6 @@ body {
     width: 80%;
   }
 }
-
 /* Glitch animation */
 @keyframes glitch {
   0%, 100% {
