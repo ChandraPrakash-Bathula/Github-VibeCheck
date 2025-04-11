@@ -1,5 +1,3 @@
-Yo, bro! Here’s a dope README for your GitHub Comparator project—short, sweet, and packed with the dev vibes we’ve built into it. It’s got the essentials: what it does, how to set it up, and a nod to the slick features. Let’s make it look pro and chill at the same time!
-
 ---
 
 # GitHub Comparator
