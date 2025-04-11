@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaMoon, FaSun, FaTwitter, FaBuilding, FaMapMarkerAlt, FaBook, FaFileAlt, FaUsers, FaUserPlus, FaCode, FaCalendarAlt, FaSync, FaStar, FaUsersCog, FaLink, FaClock, FaTimes } from 'react-icons/fa';
 import { ClipLoader } from 'react-spinners';
-import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [userData, setUserData] = useState(null);
