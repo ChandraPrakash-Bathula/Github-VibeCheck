@@ -1,0 +1,70 @@
+/* Monospace font for dev vibes */
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Main username highlight */
+.dev-username {
+  position: relative;
+}
+
+.dev-username::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #34D399, transparent);
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+.dev-username::before {
+  content: '101010';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: rgba(52, 211, 153, 0.1);
+  letter-spacing: 2px;
+  z-index: -1;
+  animation: glitch 3s infinite;
+}
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    width: 60%;
+  }
+  50% {
+    opacity: 1;
+    width: 80%;
+  }
+}
+
+/* Glitch animation */
+@keyframes glitch {
+  0%, 100% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%);
+  }
+  20% {
+    opacity: 0.15;
+    transform: translate(-48%, -52%);
+  }
+  40% {
+    opacity: 0.1;
+    transform: translate(-52%, -48%);
+  }
+  60% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%);
+  }
+  80% {
+    opacity: 0.1;
+    transform: translate(-48%, -50%);
+  }
+}
