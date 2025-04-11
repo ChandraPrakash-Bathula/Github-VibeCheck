@@ -84,7 +84,7 @@ function App() {
     >
       {/* Sticky Header */}
       <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-opacity-90 backdrop-blur-md z-10 border-b border-green-500/20">
-        <h1 className="text-2xl font-bold tracking-wider"> GitHub Comparator</h1>
+        <h1 className="text-2xl font-bold tracking-wider"> GitHub VibeCheck</h1>
         <button
           onClick={() => setDarkMode(!darkMode)}
           className={`p-2 rounded-full ${darkMode ? 'bg-gray-700 text-green-400 hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} transition-colors`}
@@ -107,7 +107,7 @@ function App() {
       {!userData ? (
         <UserInput onSubmit={(input) => handleUsernameSubmit(input, setUserData)} darkMode={darkMode} />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
           <UserInfo userData={userData} darkMode={darkMode} isMain={true} />
           {userData2 && (
             <UserInfo
@@ -132,7 +132,7 @@ function App() {
       {userData && !userData2 && (
         <button
           onClick={() => setShowInput2(true)}
-          className="mt-6 bg-green-500 text-black px-3 py-1 rounded-md hover:bg-green-400 transition-colors font-bold text-sm"
+          className="mt-6 bg-green-500 text-black px-4 py-2 rounded-md hover:bg-green-400 transition-colors font-bold"
         >
            Add Another Dev
         </button>
@@ -147,9 +147,9 @@ function App() {
       {userData2 && !userData3 && (
         <button
           onClick={() => setShowInput3(true)}
-          className="mt-6 bg-green-500 text-black px-3 py-1 rounded-md hover:bg-green-400 transition-colors font-bold text-sm"
+          className="mt-6 bg-green-500 text-black px-4 py-2 rounded-md hover:bg-green-400 transition-colors font-bold"
         >
-           Add One More Dev
+         Add One More Dev
         </button>
       )}
 
@@ -179,7 +179,7 @@ function UserInput({ onSubmit, darkMode }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       onSubmit={handleSubmit}
-      className={`p-4 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-md max-w-sm w-full border ${
+      className={`p-6 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-md max-w-md w-full border ${
         darkMode ? 'bg-gray-900/80 border-green-500/30' : 'bg-white/80 border-gray-300'
       }`}
     >
@@ -188,13 +188,13 @@ function UserInput({ onSubmit, darkMode }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="> Enter GitHub username"
-        className={`w-full p-2 border rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-green-500 font-mono text-sm ${
+        className={`w-full p-3 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-green-500 font-mono ${
           darkMode ? 'bg-gray-800 border-gray-700 text-green-400' : 'bg-white border-gray-300 text-gray-800'
         }`}
       />
       <button
         type="submit"
-        className="w-full bg-green-500 text-black p-2 rounded-md hover:bg-green-400 transition-colors font-bold text-sm"
+        className="w-full bg-green-500 text-black p-3 rounded-md hover:bg-green-400 transition-colors font-bold"
       >
          Execute
       </button>
@@ -208,11 +208,11 @@ function UserInfo({ userData, darkMode, isMain = false, onRemove }) {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05, boxShadow: isMain ? '0 0 20px rgba(52, 211, 153, 0.8)' : '0 0 12px rgba(0, 0, 0, 0.3)' }}
+      whileHover={{ scale: 1.05, boxShadow: isMain ? '0 0 25px rgba(52, 211, 153, 0.8)' : '0 0 15px rgba(0, 0, 0, 0.3)' }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`p-4 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-md relative ${
+      className={`p-6 rounded-lg shadow-lg bg-opacity-80 backdrop-blur-md relative ${
         darkMode ? 'bg-gray-900/80 text-green-400' : 'bg-white/80 text-gray-800'
       } ${isMain ? 'border-4 border-green-500/50 bg-gradient-to-br from-green-500/10 to-blue-500/10' : 'border-2 border-gray-600/50'}`}
     >
@@ -220,41 +220,41 @@ function UserInfo({ userData, darkMode, isMain = false, onRemove }) {
       {!isMain && (
         <button
           onClick={onRemove}
-          className="absolute top-1 right-1 p-1 text-red-500 hover:text-red-400 transition-colors"
+          className="absolute top-2 right-2 p-1 text-red-500 hover:text-red-400 transition-colors"
         >
-          <FaTimes size={16} />
+          <FaTimes size={20} />
         </button>
       )}
 
       <div className="text-left">
         {/* Profile Section */}
-        <div className="pb-3 border-b border-green-500/20">
+        <div className="pb-4 border-b border-green-500/20">
           <img
             src={userData.avatar_url}
             alt={userData.login}
-            className={`${isMain ? 'w-24 h-24' : 'w-16 h-16'} rounded-full mx-auto mb-3 border-4 border-green-500`}
+            className={`${isMain ? 'w-32 h-32' : 'w-24 h-24'} rounded-full mx-auto mb-4 border-4 border-green-500`}
           />
-          <div className={`${isMain ? 'py-1 relative dev-username' : ''}`}>
-            <h2 className={`${isMain ? 'text-2xl' : 'text-xl'} font-bold mb-3 text-center`}>
+          <div className={`${isMain ? 'py-2 relative dev-username' : ''}`}>
+            <h2 className={`${isMain ? 'text-4xl' : 'text-3xl'} font-bold mb-4 text-center`}>
               {userData.name || userData.login}
             </h2>
           </div>
-          <div className="space-y-1 text-xs">
+          <div className="space-y-2 text-sm">
             {userData.company && (
-              <div className="flex items-center space-x-1">
-                <FaBuilding className="text-base" />
+              <div className="flex items-center space-x-2">
+                <FaBuilding className="text-lg" />
                 <p> Works at: {userData.company}</p>
               </div>
             )}
             {userData.location && (
-              <div className="flex items-center space-x-1">
-                <FaMapMarkerAlt className="text-base" />
+              <div className="flex items-center space-x-2">
+                <FaMapMarkerAlt className="text-lg" />
                 <p> Location: {userData.location}</p>
               </div>
             )}
             {userData.blog && (
-              <div className="flex items-center space-x-1">
-                <FaLink className="text-base" />
+              <div className="flex items-center space-x-2">
+                <FaLink className="text-lg" />
                 <p>
                    Blog:{' '}
                   <a href={userData.blog} target="_blank" rel="noopener noreferrer" className="text-green-300 hover:underline">
@@ -264,33 +264,33 @@ function UserInfo({ userData, darkMode, isMain = false, onRemove }) {
               </div>
             )}
           </div>
-          <div className="mt-3 flex justify-center space-x-2">
+          <div className="mt-4 flex justify-center space-x-2">
             <a
               href={userData.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center px-3 py-1 rounded-md transition-colors font-bold text-xs ${
+              className={`inline-flex items-center px-4 py-2 rounded-md transition-colors font-bold ${
                 darkMode ? 'bg-gray-800 hover:bg-gray-700 text-green-400' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
               }`}
             >
-              <FaGithub className="mr-1" /> GitHub
+              <FaGithub className="mr-2" /> GitHub
             </a>
             {userData.twitter_username && (
               <a
                 href={`https://twitter.com/${userData.twitter_username}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-3 py-1 rounded-md bg-blue-600 hover:bg-blue-500 text-white transition-colors font-bold text-xs"
+                className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-500 text-white transition-colors font-bold"
               >
-                <FaTwitter className="mr-1" /> Twitter
+                <FaTwitter className="mr-2" /> Twitter
               </a>
             )}
           </div>
         </div>
 
         {/* Stats Section */}
-        <div className="pt-3 space-y-1 text-xs">
-          <div className="flex flex-wrap gap-1">
+        <div className="pt-4 space-y-2 text-sm">
+          <div className="flex flex-wrap gap-2">
             <div className="inline-flex items-center space-x-1 bg-green-500 text-black px-2 py-1 rounded-full text-xs font-bold">
               <FaBook />
               <p> Repos: {userData.public_repos}</p>
@@ -316,23 +316,23 @@ function UserInfo({ userData, darkMode, isMain = false, onRemove }) {
               <p> Orgs: {userData.orgsCount}</p>
             </div>
           </div>
-          <div className="flex items-center space-x-1">
-            <FaCode className="text-base" />
+          <div className="flex items-center space-x-2">
+            <FaCode className="text-lg" />
             <p> Languages: {userData.languages?.join(', ') || 'None'}</p>
           </div>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center space-x-2">
             <FaCalendarAlt className="text-sm" />
             <p> Joined: {new Date(userData.created_at).toLocaleDateString()}</p>
           </div>
-          <div className="flex items-center space-x-1">
+          <div className="flex items-center space-x-2">
             <FaSync className="text-sm" />
             <p> Last Updated: {new Date(userData.updated_at).toLocaleDateString()}</p>
           </div>
           {userData.latestEvent && (
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-2">
               <FaClock className="text-sm" />
               <p>
-                 Last Active: {new Date(userData.latestEvent).toLocaleDateString()}{' '}
+               Last Active: {new Date(userData.latestEvent).toLocaleDateString()}{' '}
                 {isRecent && <span className="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse" />}
               </p>
             </div>
