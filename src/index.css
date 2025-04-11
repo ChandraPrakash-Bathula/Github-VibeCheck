@@ -7,7 +7,6 @@ body {
 .dev-username {
   position: relative;
 }
-
 .dev-username::after {
   content: '';
   position: absolute;
